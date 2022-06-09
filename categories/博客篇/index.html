@@ -525,9 +525,11 @@
 </div>
 
 
-    <script>
-        $('.bg-cover').css('background-image', 'url(https://api.abcyun.co/api/others/randacgimage/token/5d8f31cf6a8ab)');
-    </script>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
 
 
     </div>
@@ -552,7 +554,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-active "
-                                  style="background-color: #84D80B;">                                               
+                                  style="background-color: #76E5EB;">                                               
                               <div class="notebook-skin
                                    chip-active "
                                   >博客篇                                  
@@ -569,7 +571,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #ED7326;">                                               
+                                  style="background-color: #BEBEFF;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >前端篇                                  
