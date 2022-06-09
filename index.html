@@ -539,6 +539,13 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+        <div id="prev-cover" class="left waves-effect carousel-control">
+            <i class="icon fa fa-angle-left"></i>
+        </div>
+        <div id="next-cover" class="right waves-effect carousel-control">
+            <i class="icon fa fa-angle-right"></i>
+        </div>
+    
 
     <div class="carousel-item red white-text bg-cover about-cover">
         <div class="container">
@@ -636,10 +643,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">个人博客搭建</div>
+                            <div class="title center-align">Arknights</div>
                             <div class="description center-align">
                                 
-                                    前前后后大概花了2周的时间，目前个人博客已经完善的差不多了，现在写个文章做个阶段总结，后续如果有更新的地方，会及时补充。本博客基于Hexo框架，采用hexo-theme-matery主题，并在此基础上做了改进。
+                                    Arknights(?)
                                 
                             </div>
                             <div class="cover-btns">
@@ -659,10 +666,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">LuckyBlog开源搭建教程</div>
+                            <div class="title center-align">Do u know RSA?</div>
                             <div class="description center-align">
                                 
-                                    之前在B站上发布了个人博客的视频，播放量也破千了，有网友私聊也想要搭建一个这样的博客。经过一段时间的准备，现将博客LuckyBlog的源代码公布出来，大家只需要根据以下的步骤，即可快速搭建一个漂亮且完善的博客。
+                                    It seems that RSA is a way to protect your data. But can you crack it?
                                 
                             </div>
                             <div class="cover-btns">
@@ -699,7 +706,7 @@
         coverSlider.carousel({
             duration: Number('120'),
             fullWidth: true,
-            indicators: 'false' === 'true',
+            indicators: 'true' === 'true',
             onCycleTo() {
                 if (!initUserPressedOrDraggedActive) {
                     // console.log('initUserPressedOrDraggedActive')
@@ -711,11 +718,32 @@
 
         let carouselIntervalId;
         
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 8000);
+        };
+        autoCarousel();
+        
 
         function restartPlay() {
             
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+            
         };
 
+        
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
         
     });
 </script>
@@ -735,80 +763,6 @@
 
                     
 
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12 m6" >
-        
-            <div class="post-card" style="background-image: url('/p')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="category">博客篇</a>
-                        
-                    
-                </div>
-                <a href="/posts/e3e08109.html">
-                    <h3 class="post-title">个人博客搭建</h3>
-                </a>
-                <p class="post-description">
-                    
-                        前前后后大概花了2周的时间，目前个人博客已经完善的差不多了，现在写个文章做个阶段总结，后续如果有更新的地方，会及时补充。本博客基于Hexo框架，采用hexo-theme-matery主题，并在此基础上做了改进。
-                    
-                </p>
-                <a href="/posts/e3e08109.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-        
-            <div class="post-card" style="background-image: url('/5')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="category">博客篇</a>
-                        
-                    
-                </div>
-                <a href="/posts/d74d8b76.html">
-                    <h3 class="post-title">LuckyBlog开源搭建教程</h3>
-                </a>
-                <p class="post-description">
-                    
-                        之前在B站上发布了个人博客的视频，播放量也破千了，有网友私聊也想要搭建一个这样的博客。经过一段时间的准备，现将博客LuckyBlog的源代码公布出来，大家只需要根据以下的步骤，即可快速搭建一个漂亮且完善的博客。
-                    
-                </p>
-                <a href="/posts/d74d8b76.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
-</div>
-
-
-                    </div>
                     
                 </div>
             </div>
@@ -863,16 +817,16 @@
                         <div class="card-image">
                             
                             
-                            <img src="/5" class="responsive-img" alt="LuckyBlog开源搭建教程">
+                            <img src="/j" class="responsive-img" alt="Do u know RSA?">
                             
-                            <span class="card-title">LuckyBlog开源搭建教程</span>
+                            <span class="card-title">Do u know RSA?</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                之前在B站上发布了个人博客的视频，播放量也破千了，有网友私聊也想要搭建一个这样的博客。经过一段时间的准备，现将博客LuckyBlog的源代码公布出来，大家只需要根据以下的步骤，即可快速搭建一个漂亮且完善的博客。
+                                It seems that RSA is a way to protect your data. But can you crack it?
                             
                         </div>
                         <div class="publish-info">
@@ -883,8 +837,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
-                                    博客篇
+                                <a href="/categories/RSA/" class="post-category">
+                                    RSA
                                 </a>
                                 
                                 
@@ -895,12 +849,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/hexo-blog-lucky/">
-                            <span class="chip bg-color">hexo-blog-lucky</span>
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
-                            <span class="chip bg-color">博客搭建教程</span>
+                        <a href="/tags/RSA/">
+                            <span class="chip bg-color">RSA</span>
                         </a>
                         
                     </div>
@@ -1122,16 +1076,16 @@
                         <div class="card-image">
                             
                             
-                            <img src="/p" class="responsive-img" alt="个人博客搭建">
+                            <img src="/1" class="responsive-img" alt="Arknights">
                             
-                            <span class="card-title">个人博客搭建</span>
+                            <span class="card-title">Arknights</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前前后后大概花了2周的时间，目前个人博客已经完善的差不多了，现在写个文章做个阶段总结，后续如果有更新的地方，会及时补充。本博客基于Hexo框架，采用hexo-theme-matery主题，并在此基础上做了改进。
+                                Arknights(?)
                             
                         </div>
                         <div class="publish-info">
@@ -1142,8 +1096,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
-                                    博客篇
+                                <a href="/categories/Arknights/" class="post-category">
+                                    Arknights
                                 </a>
                                 
                                 
@@ -1154,16 +1108,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Hexo/">
-                            <span class="chip bg-color">Hexo</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/Github/">
-                            <span class="chip bg-color">Github</span>
+                        <a href="/tags/Arknights/">
+                            <span class="chip bg-color">Arknights</span>
                         </a>
                         
                     </div>
@@ -1248,7 +1194,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.3k</span>&nbsp;字
+                class="white-color">4.5k</span>&nbsp;字
             
             
             
